@@ -1,0 +1,153 @@
+{
+    "drEffectsDemo": {
+      "commonConditions": {
+        "canvasUI": {
+          "description": "Display the pedalboard on the Canvas as node connections",
+          "effects": "In the demo, only predefined effects can be used (no user-added/removed effects)",
+          "connections": "Effects are displayed as connected nodes"
+        },
+        "llmChatField": {
+          "description": "Operates as Option Selecting Input instead of actual AI integration",
+          "behavior": "Displays pre-prepared UI states based on user selection"
+        },
+        "uiStateTransition": {
+          "description": "Loads and displays predefined UI states for each step"
+        }
+      },
+      "scenarioSpec": {
+        "explanation": "Each scenario consists of step-by-step user input (Option Selecting Input) and the corresponding UI response",
+        "structure": {
+          "step": {
+            "userInput": "User-selected option",
+            "uiResponse": "UI state change (Canvas / Effects / Power / Presets etc.)",
+            "description": "Summary of the state shown in the scenario"
+          }
+        }
+      },
+      "scenarios": [
+        {
+          "id": "scenario_1",
+          "title": "Create Stevie Ray Vaughan Tone",
+          "steps": [
+            {
+              "stepId": "1-0",
+              "userInput": "Create a setup on my board for Stevie Ray Vaughan tone",
+              "uiResponse": {
+                "canvas": {
+                  "effects": [
+                    "Tubescreamer",
+                    "Fender Amp Sim",
+                    "Reverb"
+                  ],
+                  "connections": [
+                    ["Tubescreamer", "Fender Amp Sim"],
+                    ["Fender Amp Sim", "Reverb"]
+                  ]
+                },
+                "highlight": ["Tubescreamer", "Fender Amp Sim", "Reverb"]
+              },
+              "description": "Display the default effect combination for SRV tone on the Canvas"
+            },
+            {
+              "stepId": "1-1",
+              "userInput": "Recommend a new effect for SRV tone based on my setup",
+              "uiResponse": {
+                "canvas": {
+                  "effectsAdded": ["Compressor"],
+                  "animation": "fade-in",
+                  "highlight": ["Compressor"]
+                }
+              },
+              "description": "Automatically add a recommended effect to the Canvas"
+            }
+          ]
+        },
+        {
+          "id": "scenario_2",
+          "title": "Check Electrical Info & Recommend Power Supply",
+          "steps": [
+            {
+              "stepId": "2-0",
+              "userInput": "Show me the electrical information of each effect",
+              "uiResponse": {
+                "effectsInfo": [
+                  {
+                    "name": "Tubescreamer",
+                    "voltage": "9V",
+                    "current": "12mA",
+                    "polarity": "Center-Negative"
+                  },
+                  {
+                    "name": "Fender Amp Sim",
+                    "voltage": "12V",
+                    "current": "250mA",
+                    "polarity": "Center-Negative"
+                  },
+                  {
+                    "name": "Reverb",
+                    "voltage": "9V",
+                    "current": "60mA",
+                    "polarity": "Center-Negative"
+                  }
+                ]
+              },
+              "description": "Display voltage/current/polarity info on each effect card"
+            },
+            {
+              "stepId": "2-1",
+              "userInput": "Recommend a suitable power supply for these effects",
+              "uiResponse": {
+                "canvas": {
+                  "powerSupplyAdded": "Voodoo Lab Pedal Power 2 Plus",
+                  "connections": [
+                    ["Power Supply", "Tubescreamer"],
+                    ["Power Supply", "Fender Amp Sim"],
+                    ["Power Supply", "Reverb"]
+                  ],
+                  "highlight": ["Power Supply"]
+                }
+              },
+              "description": "Add the recommended power supply node to the Canvas and visualize power connections"
+            }
+          ]
+        },
+        {
+          "id": "scenario_3",
+          "title": "Preset Recommendation",
+          "steps": [
+            {
+              "stepId": "3-0",
+              "userInput": "Recommend possible presets for my board",
+              "uiResponse": {
+                "presets": [
+                  {
+                    "name": "Rock",
+                    "effects": {
+                      "Tubescreamer": {"Drive": 6, "Tone": 5, "Level": 7},
+                      "Reverb": {"Mix": 4, "Decay": 5}
+                    }
+                  },
+                  {
+                    "name": "Blues",
+                    "effects": {
+                      "Tubescreamer": {"Drive": 4, "Tone": 6, "Level": 5},
+                      "Reverb": {"Mix": 5, "Decay": 6}
+                    }
+                  },
+                  {
+                    "name": "Funk",
+                    "effects": {
+                      "Tubescreamer": {"Drive": 3, "Tone": 7, "Level": 6},
+                      "Reverb": {"Mix": 3, "Decay": 4}
+                    }
+                  }
+                ]
+              },
+              "description": "Display the preset UI with each knob's settings"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
