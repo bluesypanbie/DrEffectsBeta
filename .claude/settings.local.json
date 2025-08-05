@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(npm run build:*)",
+      "Bash(rm:*)",
+      "Bash(sudo chown:*)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "Bash(mv:*)",
+      "Bash(curl:*)"
+    ],
+    "deny": []
+  }
+}
